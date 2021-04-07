@@ -1,10 +1,47 @@
-<html>
+<html lang="en">
   <head>
     <link rel="stylesheet" href="./styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>
+      What's For Dinner?
+    </title>
   </head>
   <body>
-    
+    <main>
+      <header>
+        <p>What's for Dinner?</p>
+        <button id="addRecipe" class="add-recipe">ADD A RECIPE</button>
+      </header>
+      <section>
+        <article class="left">
+          <h1>What are you looking for?<span>*</span></h1>
+          <input type="radio" id="side" name="meal" value="side">
+          <label for="value">Side</label>
+          <input type="radio" id="mainDish" name="meal" value="mainDish">
+          <label for="mainDish">Main Dish</label>
+          <input type="radio" id="dessert" name="meal" value="dessert">
+          <label for="dessert">Desesrt</label>
+          <button id="letsCook" class="button cook bubble" type="submit">LET'S COOK!</button>
+          
+        </article>
+        <article class="right">
+          <div>
+            <img class='img' src="./assets/cookpot.svg">
+          </div>
+        </article>
+      </section>
+      <footer id="foot" class="footer hidden">
+        <form class="form">
+          <label for="type">Recipe Type:</label>
+          <input type="text" id="recipeType" name="fname">
+          <label for="name">Recipe Name:</label>
+          <input type="text" id="recipeName" name="fname">
+          <button id='addNew' class="button new bubble">ADD NEW</button>
+      </form>
+      </footer>
+    </main>
+    <script type="text/javascript" src="Recipe.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="data.js"></script>
   </body>
-  <script type="text/javascript" src="main.js"></script>
 </html>
