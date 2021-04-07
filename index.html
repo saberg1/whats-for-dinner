@@ -12,7 +12,7 @@
         <p>What's for Dinner?</p>
         <button id="addRecipe" class="add-recipe">ADD A RECIPE</button>
       </header>
-      <section>
+      <section class="main-section">
         <article class="left">
           <h1>What are you looking for?<span>*</span></h1>
           <input type="radio" id="side" name="meal" value="side">
@@ -22,14 +22,16 @@
           <input type="radio" id="dessert" name="meal" value="dessert">
           <label for="dessert">Desesrt</label>
           <button id="letsCook" class="button cook bubble" type="submit">LET'S COOK!</button>
-          
         </article>
         <article class="right">
-          <div>
+          <div class="display-card">
             <img class='img' src="./assets/cookpot.svg">
           </div>
         </article>
       </section>
+      <!-- <section class="favorite-section">
+        <p>section class=favorite-section</p>
+      </section> -->
       <footer id="foot" class="footer hidden">
         <form class="form">
           <label for="type">Recipe Type:</label>
@@ -37,7 +39,7 @@
           <label for="name">Recipe Name:</label>
           <input type="text" id="recipeName" name="fname">
           <button id='addNew' class="button new bubble">ADD NEW</button>
-      </form>
+        </form>
       </footer>
     </main>
     <script type="text/javascript" src="src/Recipe.js"></script>

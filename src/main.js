@@ -4,7 +4,6 @@ var mainRadio = document.querySelector('#mainDish')
 var dessertRadio = document.querySelector('#dessert')
 
 var footer = document.querySelector('#foot')
-var crockpot = document.querySelector('div')
 
 var main = document.querySelector('main')
 
@@ -15,27 +14,61 @@ var addRecipeButton = document.querySelector('#addRecipe')
 var letsCookButton = document.querySelector('#letsCook')
 var addNewButton = document.querySelector('#addNew')
 var viewFavoritesButton = document.querySelector('#viewFavorites')
-var favoriteButton = document.querySelector('#favorite')
+
+var favoriteBtn = document.querySelector('#favorite') //query selector for button added to DOM through displayRecipe()
+var rightArticle = document.querySelector('.right') // query selector for parent of display-card
+
+var displayCard = document.querySelector('.display-card') // query selector for display-card
+
+var hideSection = document.querySelector('.main-section')
+var hideFavorite = document.querySelector('.favorite-section')
 
 //Event Listeners
 letsCookButton.addEventListener('click', createRecipe);
 addRecipeButton.addEventListener('click', displayForm);
 addNewButton.addEventListener('click', addRecipe)
-// viewFavoritesButton.addEventListener('click', addFavorite, false);
+
+displayCard.addEventListener('click', addFavorite)
+
+window.addEventListener('load', pageLoad)
 
 //Event handlers
-function addFavorite(){
+function pageLoad(){
+  console.log('page loaded')
+  // hideFavorite.classList.add('hidden')
+}
 
+function display(){
+  console.log('display function test')
+  hideSection.innerHTML = `<div>
+  <p ondblclick="remove(this)">${meal.favoritedRecipes}</p>
+  <button class="go-home" id="goHome">Home</button>
+  </div>
+  `
+  hideFavorite.classList.remove('hidden')
+}
+
+function addFavorite(recipe){
+  // console.log('recipe variable outside if statement: ', recipe)
+  if(event.target.className === 'favoriteBtn') {
+    // console.log('recipe variable INSIDE if statement: ', recipe)
+    // meal.favoritedRecipes.push('test meal push')
+    console.log(recipe)
+  } else if(event.target.className === 'viewFavorites'){
+    display(recipe)
+    console.log('view favorites buton clicked')
+  }
 }
 
 function displayRecipe(recipe){
   event.preventDefault()
-  crockpot.innerHTML = `<div>
+  displayCard.innerHTML = `
   <p>You should make:</p>
   <h2>${recipe}</h2>
-  <button id="favorite">Favorite</button>
-  <button id="viewFavorites">View Favorites</button>
-  </div>`
+  <button class="favoriteBtn" id="favorite">Favorite</button>
+  <button class="viewFavorites" id="viewFavorites">View Favorites</button> 
+  `
+  addFavorite(recipe)
 }
 
 function addRecipe(){
@@ -77,3 +110,7 @@ function getRandomElement(array) {
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
+function remove(el) {
+  var element = el;
+  element.remove();
+}
