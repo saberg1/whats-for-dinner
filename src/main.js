@@ -37,7 +37,7 @@ favoriteSection.addEventListener('dblclick',deleteFavorite)
 
 //Event handlers
  /* find index of specific click
-    splice out at index
+    splice out at inde
 */
 
 window.addEventListener('load', pageLoad)
