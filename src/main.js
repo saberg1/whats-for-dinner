@@ -36,18 +36,8 @@ favoriteCard.addEventListener('click', goHome)
 favoriteSection.addEventListener('dblclick',deleteFavorite)
 
 //Event handlers
- /* find index of specific click
-    splice out at inde
-*/
-
 window.addEventListener('load', pageLoad)
 function pageLoad(){
-}
-
-function deleteFavorite(){
-  var deleteMe = meal.favoritedRecipes.indexOf(event.closest)
-  console.log(deleteMe)
-  // meal.favoritedRecipes.shift()
 }
 
 function addFavorite(event){
@@ -62,18 +52,35 @@ function addFavorite(event){
     display()
   }
 }
+/*
+  find index of specific click (create button to go with each index being printed to DOM to be deletable)
+   splice out at index
+  
+*/
 
-function goHome(event){
-  if(event.target.className === 'go-home'){
-    toggleDisplay()
+function deleteFavorite(event){
+  var deleleIndex = meal.favoritedRecipes.indexOf(event.target.closest)
+  console.log(deleleIndex)
+}
+
+function separateList(){
+  var separateIndexes;
+  for(var i = 0; i < meal.favoritedRecipes.length;i++){
+    separateIndexes = meal.favoritedRecipes[i]
   }
+  display(separateIndexes)
 }
 
 function display(){
-  favoriteCard.innerHTML = `<div>${meal.favoritedRecipes}</div>
-  <button class="go-home">Home</button>
-  `
+  favoriteCard.innerHTML = " ";
+  for(var i = 0; i < meal.favoritedRecipes.length;i++){
+    favoriteCard.innerHTML += `<div>${meal.favoritedRecipes[i]}<button class="deleteRecipe">Click to Delete</button></div>
+    
+    `
+  }
+    favoriteCard.innerHTML += `<button class="go-home">Home</button>`
 }
+
 
 function displayRecipe(recipe){
   event.preventDefault()
@@ -95,7 +102,8 @@ function addRecipe(){
   } else if (recipeType.value === 'Dessert'){
     meal.desserts.push(recipeName.value)
   } else {
-    meal.type = [recipeName.value]
+    meal[recipeType.value] = [];
+    meal[recipeType.value].push(recipeName.value)
   }
   displayRecipe(recipeName.value)
 }
@@ -110,6 +118,15 @@ function createRecipe(){
   } else if (dessertRadio.checked){
     recipe = getRandomElement(meal.desserts)
     displayRecipe(recipe)
+  }
+}
+
+function goHome(event){
+  if(event.target.className === 'go-home'){
+    toggleDisplay()
+  }
+  if(event.target.className === 'deleteRecipe'){
+    console.log('rawr')
   }
 }
 
