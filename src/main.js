@@ -55,7 +55,7 @@ function addFavorite(event){
 /*
   find index of specific click (create button to go with each index being printed to DOM to be deletable)
    splice out at index
-  
+  find way to append 'Add a Recipe' array
 */
 
 function deleteFavorite(event){
@@ -71,16 +71,20 @@ function separateList(){
   display(separateIndexes)
 }
 
+
+
+// onclick="remove(this)"
+//if event at click == 
 function display(){
   favoriteCard.innerHTML = " ";
   for(var i = 0; i < meal.favoritedRecipes.length;i++){
-    favoriteCard.innerHTML += `<div>${meal.favoritedRecipes[i]}<button class="deleteRecipe">Click to Delete</button></div>
-    
+    favoriteCard.innerHTML += `<div class="removeMe">
+    <span>${meal.favoritedRecipes[i]}</span>
+    <button class="deleteRecipe" onclick="remove(this)">Delete</button></div>
     `
   }
     favoriteCard.innerHTML += `<button class="go-home">Home</button>`
 }
-
 
 function displayRecipe(recipe){
   event.preventDefault()
@@ -120,13 +124,25 @@ function createRecipe(){
     displayRecipe(recipe)
   }
 }
+/*
+how to target div? then once targeted,,,remove from array with splice?
+how to delete now that i have buttons set up? delete whole DIV and remove from 
+meals.favoriteRecipes array?
+linked through 'delete button' to activate/click the parent div. listener
+is only on the parent div. so when delete button is clicked, it takes out whole div.
+when delete button clicked, that event.target.className invokes another function
+to delelte WHOLE div to remove from DOM. 
+then shuld be able to go onto localstorage
 
+*/
 function goHome(event){
   if(event.target.className === 'go-home'){
     toggleDisplay()
   }
   if(event.target.className === 'deleteRecipe'){
-    console.log('rawr')
+    // event.remove()
+    // meal.favoritedRecipes.splice()
+    console.log('rawr');
   }
 }
 
@@ -148,6 +164,5 @@ function getRandomIndex(array) {
 };
 
 function remove(el) {
-  var element = el;
-  element.remove();
+  el.remove();
 }
