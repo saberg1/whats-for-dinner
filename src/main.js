@@ -33,7 +33,7 @@ addRecipeButton.addEventListener('click', displayForm);
 addNewButton.addEventListener('click', addRecipe)
 displayCard.addEventListener('click', addFavorite)
 favoriteCard.addEventListener('click', goHome)
-favoriteSection.addEventListener('click', deleteFavorite)
+// favoriteSection.addEventListener('click', deleteFavorite)
 
 //Event handlers
 window.addEventListener('load', pageLoad)
@@ -74,7 +74,7 @@ function separateList(){
 function display(){
   favoriteCard.innerHTML = " ";
   for(var i = 0; i < meal.favoritedRecipes.length;i++){
-    favoriteCard.innerHTML += `<div class="removeMe">
+    favoriteCard.innerHTML += `<div class="removeMe" onclick="remove(this)">
     <span>${meal.favoritedRecipes[i]}</span>
     <button class="deleteRecipe">Delete</button></div>
     `
@@ -136,6 +136,7 @@ function goHome(event){
     toggleDisplay()
   }
   if(event.target.className === 'deleteRecipe'){
+    //trigger event to target and remove <div> with classname of 'removeMe'
     meal.favoritedRecipes.indexOf(event)
     var index1 = meal.favoritedRecipes.indexOf(event)
     meal.favoritedRecipes.splice(index1, 1)
@@ -143,10 +144,10 @@ function goHome(event){
   }
 }
 
-function deleteFavorite(event){
-  var deleteIndex = meal.favoritedRecipes.indexOf(event.target.closest)
-  console.log('clicked recipe name', deleteIndex)
-}
+// function deleteFavorite(event){
+//   var deleteIndex = meal.favoritedRecipes.indexOf(event.target.closest)
+//   console.log('clicked recipe name', deleteIndex)
+// }
 
 function displayForm(){
   footer.classList.toggle('hidden')
@@ -166,6 +167,7 @@ function getRandomIndex(array) {
 };
 
 function remove(el) {
-  el.remove();
+  var element = el;
+  element.remove();
 }
 // onclick="remove(this)"
