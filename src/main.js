@@ -15,15 +15,15 @@ var letsCookButton = document.querySelector('#letsCook')
 var addNewButton = document.querySelector('#addNew')
 var viewFavoritesButton = document.querySelector('#viewFavorites')
 
-var favoriteBtn = document.querySelector('#favorite')
-var rightArticle = document.querySelector('.right')
+var favoriteBtn = document.querySelector('#favorite') //query selector for button added to DOM through displayRecipe()
+var rightArticle = document.querySelector('.right') // query selector for parent of display-card
 
-var displayCard = document.querySelector('.display-card')
+var displayCard = document.querySelector('.display-card') // query selector for display-card
 
 var mainSection = document.querySelector('.main-section')
 var favoriteSection = document.querySelector('.favorite-section')
 
-var homeBtn = document.querySelector('#goHome') 
+var homeBtn = document.querySelector('#goHome') // FIX HOME BUTTON SWAP
 var favoriteCard = document.querySelector('.favorite')
 var articleFavorite = document.querySelector('#targetHere')
 
@@ -62,7 +62,7 @@ function separateList(){
 function display(){
   favoriteCard.innerHTML = " ";
   for(var i = 0; i < meal.favoritedRecipes.length;i++){
-    favoriteCard.innerHTML += `<div class="removeMe" onclick="remove(this)">
+    favoriteCard.innerHTML += `<div class="favorite-card" onclick="remove(this)">
     <span>${meal.favoritedRecipes[i]}</span>
     <button class="deleteRecipe">Delete</button></div>
     `
@@ -73,7 +73,7 @@ function display(){
 function displayRecipe(recipe){
   event.preventDefault()
   displayCard.innerHTML = `
-  <p>You should make:</p>
+  <p class="italic">You should make:</p>
   <h2>${recipe}</h2>
   <button class="favoriteBtn" id="favorite">Favorite</button>
   <button class="viewFavorites" id="viewFavorites">View Favorites</button> 

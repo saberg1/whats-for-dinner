@@ -14,13 +14,15 @@
       </header>
       <section class="main-section">
         <article class="left">
-          <h1>What are you looking for?<span>*</span></h1>
-          <input type="radio" id="side" name="meal" value="side">
-          <label for="value">Side</label>
-          <input type="radio" id="mainDish" name="meal" value="mainDish">
-          <label for="mainDish">Main Dish</label>
-          <input type="radio" id="dessert" name="meal" value="dessert">
-          <label for="dessert">Desesrt</label>
+          <h1>What are you looking for?<span class="red"><sup>*</sup></span></h1>
+          <div class="radio-btn">
+            <input type="radio" id="side" name="meal" value="side">
+            <label for="side">Side</label><br>
+            <input type="radio" id="mainDish" name="meal" value="mainDish">
+            <label for="mainDish">Main Dish</label><br>
+            <input type="radio" id="dessert" name="meal" value="dessert">
+            <label for="dessert">Desesrt</label><br>
+          </div>
           <button id="letsCook" class="button cook bubble" type="submit">LET'S COOK!</button>
         </article>
         <article class="right card">
@@ -37,13 +39,12 @@
         <form class="form">
           <label for="type">Recipe Type:</label>
           <input type="text" id="recipeType" name="fname">
-          <label for="name">Recipe Name:</label>
+          <label for="name" style="margin-left: 15px;">Recipe Name:</label>
           <input type="text" id="recipeName" name="fname">
           <button id='addNew' class="button new bubble">ADD NEW</button>
         </form>
       </footer>
     </main>
-    <!-- <script type="text/javascript" src="src/Recipe.js"></script> -->
     <script type="text/javascript" src="src/main.js"></script>
     <script type="text/javascript" src="src/data.js"></script>
   </body>
